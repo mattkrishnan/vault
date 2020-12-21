@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Vault</title>
+    <!--link href="http://mason.gmu.edu/~mkrishn5/Web1/vault/styles.css" rel="stylesheet" type="text/css"-->
+	<link href="styles.css" rel="stylesheet" type="text/css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Rock+Salt&display=swap" rel="stylesheet">
+	<script>
+		
+
+		
+	function giveStar(){
+		//This method creates a star image element, give it certain properties like ID and a src location
+		//then adds the image after the 'rate' element ID.
+		var newNode = document.createElement("img");
+		newNode.src = "images/star.png";
+		newNode.id = "star";
+		var src = document.getElementById("rate");
+		src.appendChild(newNode);
+			
+	}
+		
+	function removeStar(){
+		//This method removes the star image by finding its ID 'star'
+		var currentNode = document.getElementById("star");
+		currentNode.parentNode.removeChild(currentNode);
+	}
+		
+	//this variable keeps track of how many degrees my image rotated
+	var intervalId;	
+	//this variable references the image through its ID	
+	var albumspin;	
+	function spin(){
+			//This function will spin the image
+			//Here is where I assign the id to my albumspin variable
+		 	albumspin = document.getElementById('albumspin'), degree = 0;
+			//Now intervalId comes into play and uses the setInterval method to apply the transform
+			//this is also to keep track of the value so I can later clear it
+			intervalId = setInterval(function() {
+			albumspin.style.transform = "rotate(" + ++degree + "deg)";}, 1);
+	}
+		
+	function stop(){
+			//This function just stops the image rotation animation.
+			//just clearing the intervalId so I can stop the image at it's current position
+		 	clearInterval(intervalId);
+	}
+		
+    function day(){
+		//This function sets the style elements if the user picks the day theme.
+		
+		//Each variable and ID set changes something. This one changes the picture
+		var picker = document.getElementById("theme");
+		picker.setAttribute("class", "jumbotron day");
+		
+		//This set changes the text for the text above the buttons
+		var picker1 = document.getElementById("theme1");
+		picker1.setAttribute("class", "daytext");
+		
+		//This set changes the headline image that is over the picture
+		var picker2 = document.getElementById("theme2");
+		picker2.setAttribute("class", "headlineday");
+	}
+	
+		
+	function nite(){
+		//This function sets the style elements if the user picks the NITE theme.
+		
+		//Each variable and ID set changes something. This one changes the picture	
+		var picker = document.getElementById("theme");
+		picker.setAttribute("class", "jumbotron nite");
+		
+		//This set changes the text for the text above the buttons
+		var picker1 = document.getElementById("theme1");
+		picker1.setAttribute("class", "nitetext");
+		
+		//This set changes the headline image that is over the picture
+		var picker2 = document.getElementById("theme2");
+		picker2.setAttribute("class", "headlinenite");
+		
+	}
+		
+	function changeText (e) {
+		//This function executes when the mouseOver event fires
+		
+		//First I set a variable to the id 'change text'
+		var changeTextColor = document.getElementById("changeText");
+		
+		//If the event fires over the specified ID, I change the variable 
+		//I just set to a different color
+		if (e.target.id === "changeText"){
+			changeTextColor.setAttribute("style", "color: #ff8585;");
+		}
+	}
+	
+	function changeTextBack (e) {
+		//This function executes with the mouseOut event fires
+		
+		//Same as the last one, I set the variable to a specific ID
+		var changeTextColor = document.getElementById("changeText");
+		
+		//If my mouse is not over this ID, the text is back to the original color
+		if (e.target.id === "changeText"){
+			changeTextColor.setAttribute("style", "color: #342C8C;");
+		}
+	}
+	
+	//These are my event handelers for the rollover functions
+	document.addEventListener("mouseover", changeText, false);
+	document.addEventListener("mouseout", changeTextBack, false);
+
+	</script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="backtotop">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+       </button>
+       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+             <li class="nav-item vaultmenu active">
+                <a class="nav-link vaultmenu" href="index.html" >Home</a>
+             </li>
+             <li class="nav-item">
+                <a class="nav-link vaultmenu" href="collection.html">Collection</a>
+             </li>
+             <li class="nav-item">
+                <a class="nav-link vaultmenu" href="contact.html">Contact</a>
+             </li>
+			 <li class="nav-item">
+                <a class="nav-link vaultmenu" href="listen.html">Suggestions</a>
+             </li> 
+            <li class="nav-item">
+                <a class="nav-link vaultmenu" href="sources.html">Sources</a>
+             </li>
+			<li class="nav-item vaultmenu active">
+                <a class="nav-link vaultmenu" href="index.html" role="button" aria-haspopup="true" >Day &amp; Nite<span class="sr-only">(current)</span></a>
+             </li>
+			 <li class="nav-item">
+                <a class="nav-link vaultmenu" href="jquerypage.html">jQuery</a>
+             </li>
+          </ul>
+       </div>
+    </nav>
+
+
+    <div id="theme" class="jumbotron nite">
+        <div class="concert" title="Music Concert">
+          <span id="theme2" class="headline nitetext" >Day &amp; Nite</span>
+        </div>
+    </div>
+
+   <div class="container sitebody">
+       <div class="row text-center">
+          <div class="col-lg-6 offset-lg-3"><h2 id="theme1" >Choose your theme!</h2>
+	  	<form>
+		  <button class="coolBtn" onclick="day()" type="button">Day</button> <button class="coolBtn" onclick="nite()" type="button">Nite</button>
+		</form>
+	  </div>
+       </div>
+       <br>
+       <hr>
+       <br>
+       <div class="row bodyrow">
+          <div class="col-md-4">
+             <div class="card">
+                <div class="card-body">
+					<h3 class="card-title" id="changeText">Rate My Site! (And Hover Over This Text)</h3>
+                   <p class="card-text" id="rate">How many stars would you give my site: <br/></p>
+				<div class="card-body text-center">
+					<form>
+					  <button id="insert" class="coolBtn" onclick="giveStar()" type="button">Star Me</button> <button id="remove" class="coolBtn" onclick="removeStar()" type="button">Remove</button>
+					</form>
+                </div>
+                </div>
+             </div>
+          </div>
+          <div class="col-md-4">
+             <div class="card">
+				 <img src ="images/sunset.jpg" alt="mouse over image"/>		 
+             </div>
+             <br>
+             <br/>
+          </div>
+          <div class="col-md-4">
+             <div class="card">
+				<a id="spotify"></a>
+                <img class="card-img-top" id="albumspin" src="images/spin.png" alt="vinyl record" ><br /><br />
+                <div class="card-body text-center">
+					<form>
+					  <button class="coolBtn" onclick="spin()" type="button">Spin It</button> <button class="coolBtn" onclick="stop()" type="button">Stop It</button>
+					</form>
+                </div>
+             </div>
+          </div>
+       </div>
+       <br>
+       <hr>
+       <div class="row">
+          <div class="text-center col-lg-6 offset-lg-3 offset-xl-0 col-xl-12">
+             <h4>Disclaimer:</h4>
+             <p>This website is developed as an educational project. Certain materials are included under the fair use exemption of the U.S. Copyright Law and have been prepared accoring to the fair use guidelines and are restricted from further use.</p>
+			  <p><a href="http://mason.gmu.edu/~mkrishn5/Web1/vault/styles.css">CSS Source File</a> &#9835; <a href="#backtotop">Return to Menu</a></p>
+          </div>
+       </div>
+    </div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,263 @@
+body{
+	background-color: #343A40!important;
+}
+
+.bodyrow {
+	color: #342C8C!important;
+}
+.navmenubar {
+	padding-top: 20 px;
+}
+nav .top-nav-bar {
+}
+div .parallax .concert .collection .home .contact .sources .records .jquerypage{
+	padding-left: 69px;
+	margin-left: 0px;
+	
+}
+.concert {
+  position: absolute;
+  top: 50%;
+	width: 95%;
+  text-align: center;
+  
+}
+
+.home{
+	background: url("images/concert1.jpg");
+	min-height: 1100px;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+.records{
+	background: url("images/records.jpg");
+	min-height: 1100px;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+.contact{
+	background: url("images/dj.jpg");
+	min-height: 1100px;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+
+.collection{
+	background: url("images/plate.jpg");
+	min-height: 1100px;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+.sources{
+	background: url("images/concert.jpg");
+	min-height: 1100px;
+	background-attachment: fixed;
+	background-size: cover;
+}
+.jquerypage{
+	background: url("images/yellowstone.jpg");
+	min-height: 1100px;
+	background-attachment: fixed;
+	background-size: cover;
+}
+.day{
+	background: url("images/day.jpg");
+	min-height: 1100px;
+	background-attachment: fixed;
+	background-size: cover;
+	color: #fb5050;
+  	letter-spacing: 10px;
+  	font-family: 'Rock Salt', cursive;
+}
+
+.daytext{
+	color: #ff8585;
+  	font-family: 'Rock Salt', cursive;
+}
+
+.nitetext{
+    color: #66FCF1;
+  	font-family: 'Rock Salt', cursive;
+}
+
+.nite{
+	background: url("images/nite.jpg");
+	min-height: 1100px;
+	background-attachment: fixed;
+	background-size: cover;
+    color: #66FCF1;
+  	font-family: 'Rock Salt', cursive;
+}
+
+span.headlinenite {
+  color: #66FCF1;
+  font-size: 72px;
+  letter-spacing: 10px;
+  font-family: 'Rock Salt', cursive;
+  text-shadow: 6px 2px #45A29E;
+}
+span.headlineday {
+  color: #ff8585; 
+  font-size: 72px;
+  letter-spacing: 10px;
+  font-family: 'Rock Salt', cursive;
+  text-shadow: 6px 2px #fb5050;
+}
+
+
+.sitebody{
+	background-color: #343A40;
+	color: #fcae66;
+	
+}
+
+a.vaultmenu:link,
+a.vaultmenu:visited{ color: #66FCF1!important;
+	text-decoration: none; 
+font-weight: bold;}
+
+a.vaultmenu:active {
+	color:#fcae66;
+}
+
+a.vaultmenu:hover {
+	color:#45A29E!important; 
+}
+
+ul.music-note{
+	list-style: none;
+}
+
+ ul.music-note li:before {
+	content: '\1D160';
+}
+
+
+img.soundcloud{
+	border-style: solid;
+	borderwidth: 1px;
+	border-color:#FF00CE;
+}
+span.headline-listen {
+  color: #FDAE66;
+  font-size: 72px;
+  letter-spacing: 10px;
+  font-family: 'Rock Salt', cursive;
+  text-shadow: 6px 2px #C37630;
+}
+
+span.headline {
+  color: #66FCF1;
+  font-size: 72px;
+  letter-spacing: 10px;
+  font-family: 'Rock Salt', cursive;
+  text-shadow: 6px 2px #45A29E;
+}
+
+.container.text-white.bg-dark.p-4.footer {
+	width: 100%;
+}
+.navbar.navbar-expand-md.navbar-dark.bg-dark.top-nav-bar.menunav {
+	font-weight: 400;
+	font-style: normal;
+	font-size: 200%;
+	color: #FFFFFF;
+	letter-spacing: 3px;
+}
+.nav-item.dropdown:hover {
+	display: block;
+}
+
+.container.mainbody {
+	background-color: #FDCF90;
+}
+
+table.collectionTable {
+  border: 1px solid #FF00CE;
+  background-color: #ffffff;
+  width: 100%;
+  text-align: center;
+}
+table.collectionTable td, table.collectionTable th {
+  border: 1px solid #FF00CE;
+  padding: 3px 2px;
+}
+table.collectionTable tbody td {
+  font-size: 13px;
+}
+table.collectionTable tr:nth-child(even) {
+  background: #FFD38A;
+}
+table.collectionTable thead {
+  background: #fcae66;
+  border-bottom: 2px solid #444444;
+}
+table.collectionTable thead th {
+  font-size: 15px;
+  font-weight: bold;
+  color: #342C8C;
+}
+
+form.contactmeform{
+	background-color: #FFFFFF;
+	padding-left: 15px;
+	margin-bottom: 15px;
+	
+}
+
+fieldset.fieldform{
+	border-style: solid !important;
+	border-width: 2px !important;
+	border-color: black !important;
+	padding-left: 14px !important;
+	margin-bottom: 2px;
+}
+
+legend.askartist{
+	width: 7% !important;
+}
+
+input.cursor{
+	  border-top-style: hidden;
+      border-right-style: hidden;
+      border-left-style: hidden;
+      border-bottom-style: groove;
+      background-color: #343A40 !important;
+	  color: #66FCF1;
+	  font-size: 24px;
+	  outline: none;
+	  text-align:center;
+	  font-family: 'Rock Salt', cursive;
+}
+
+#welcome-fname{
+	font-family: 'Rock Salt', cursive;
+}
+
+.coolBtn {
+	background-color:#fcae66;
+	border-radius:15px;
+	display:inline-block;
+	cursor:pointer;
+	color:#66FCF1;
+	font-size:17px;
+	padding:7px 25px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #e1e2ed;
+}
+.coolBtn:hover {
+	background-color:#66FCF1;
+	color: #B266FC;
+}
+.coolBtn:active {
+	position:relative;
+	top:1px;
+}
+.error{
+	color: red;
+	font-weight: bold;
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<!-- Fig. 16.5: SwitchContent.html -->
+<!-- Asynchronously display content without reloading the page. -->
+<html>
+<head>
+   <meta charset = "utf-8">
+   <style type = "text/css">
+      .box { border: 1px solid black; padding: 10px }
+   </style>
+   <title>Switch Content Asynchronously</title>
+   <script>
+      var asyncRequest; // variable to hold XMLHttpRequest object
+
+      // set up event handlers
+      function registerListeners()
+      {
+         var img;
+         img = document.getElementById( "bluegrass" );
+         img.addEventListener( "mouseover", 
+            function() { getContent( "bluegrass.html" ); }, false ); 
+         img.addEventListener( "mouseout", clearContent, false ); 
+         img = document.getElementById( "fiddle" );
+         img.addEventListener( "mouseover", 
+            function() { getContent( "fiddle.html" ); }, false ); 
+         img.addEventListener( "mouseout", clearContent, false ); 
+         img = document.getElementById( "jazz" );
+         img.addEventListener( "mouseover", 
+            function() { getContent( "jazz.html" ); }, false ); 
+         img.addEventListener( "mouseout", clearContent, false ); 
+         img = document.getElementById( "piano" );
+         img.addEventListener( "mouseover", 
+            function() { getContent( "piano.html" ); }, false ); 
+         img.addEventListener( "mouseout", clearContent, false ); 
+         img = document.getElementById( "rock" );
+         img.addEventListener( "mouseover", 
+            function() { getContent( "rock.html" ); }, false );
+         img.addEventListener( "mouseout", clearContent, false ); 
+         img = document.getElementById( "yell" );
+         img.addEventListener( "mouseover", 
+            function() { getContent( "yell.html" ); }, false ); 
+         img.addEventListener( "mouseout", clearContent, false ); 
+      } // end function registerListeners
+
+      // set up and send the asynchronous request.
+      function getContent( url )
+      {
+         // attempt to create XMLHttpRequest object and make the request
+         try
+         {
+            asyncRequest = new XMLHttpRequest(); // create request object
+
+            // register event handler
+            asyncRequest.addEventListener(
+               "readystatechange", stateChange, false); 
+            asyncRequest.open( "GET", url, true ); // prepare the request
+            asyncRequest.send( null ); // send the request
+         } // end try
+         catch ( exception )
+         {
+            alert( "Request failed." );
+         } // end catch
+      } // end function getContent
+      
+      // displays the response data on the page
+      function stateChange()
+      {
+         if ( asyncRequest.readyState == 4 && asyncRequest.status == 200 )
+         {
+            document.getElementById( "contentArea" ).innerHTML = 
+               asyncRequest.responseText; // places text in contentArea
+         } // end if
+      } // end function stateChange
+
+      // clear the content of the box
+      function clearContent()
+      {
+         document.getElementById( "contentArea" ).innerHTML = "";
+      } // end function clearContent
+
+      window.addEventListener( "load", registerListeners, false );
+   </script>
+</head>
+<body>
+   <h1>Mouse over a book for more information.</h1>
+   <img id = "bluegrass" alt = "bluegrass"
+      src = "images/bluegrass_sm.jpg">
+   <img id = "fiddle" alt = "fiddle"
+      src = "images/fiddlesm.jpg">
+   <img id = "jazz" alt = "jazz"
+      src = "images/jazzsm.jpg">
+   <img id = "piano" alt = "piano"
+      src = "images/pianosm.jpg">
+   <img id = "rock" alt = "rock" 
+      src = "images/rocksm.jpg">
+   <img id = "yell" alt = "yell"
+      src = "images/yellsm.jpg">
+   <div class = "box" id = "contentArea"></div>
+</body>
+</html>

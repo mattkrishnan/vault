@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Vault</title>
+    <link href="styles.css" rel="stylesheet" type="text/css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Rock+Salt&display=swap" rel="stylesheet">
+	 <!--This library made possible by mathusummut. Source: https://github.com/mathusummut/confetti.js-->
+	 <script src="scripts/confetti.js"></script>
+
+	<script>
+	//this function satisfies the "one cool thing" requirement of Project 2. 
+	//At the bottom of this page, I've hidden a literal easter egg image I made in photoshop.
+	//Once clicked, the egg breaks and the confetti effect is triggered.
+	var toggle = false; //First I create a global variable called toggle and set it to false.
+		
+    function easteregg(){
+		toggle = true; //inside the function, I set toggle to true
+		//if toggle is true, I toggle the broken egg image
+		if (toggle == true){
+			document.getElementById('egg').src = 'images/easteregg-broke.png';
+			confetti.start(); //this function call starts the confetti animation
+		}
+		else {
+			document.getElementById('egg').src = 'images/easteregg-whole.png';
+		}
+		
+	}
+		
+		var child; //Stores the newly created browser window.
+
+		function start(){ //This function activates when the button is clicked, which then starts the open_window function.
+			document.getElementById("openW").addEventListener("click", open_window, false);
+		}
+
+		function open_window(){	//Assigns the opened website to the child variable.
+			//Enter website, leave name blank, and the last attributes are specifications for the window.
+			child=window.open("https://soundcloud.com/discover/sets/charts-top:all-music:us", "", "menubar=yes, toolbar=yes, height=600, width=600");
+   }
+
+		window.addEventListener("load", start, false); 
+
+	</script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="backtotop">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+       </button>
+       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+             <li class="nav-item vaultmenu active">
+                <a class="nav-link vaultmenu" href="index.html" role="button" aria-haspopup="true" >Home <span class="sr-only">(current)</span></a>
+             </li>
+             <li class="nav-item">
+                <a class="nav-link vaultmenu" href="collection.html">Collection</a>
+             </li>
+             <li class="nav-item">
+                <a class="nav-link vaultmenu" href="contact.html">Contact</a>
+             </li>
+			 <li class="nav-item">
+                <a class="nav-link vaultmenu" href="listen.html">Suggestions</a>
+             </li> 
+            <li class="nav-item">
+                <a class="nav-link vaultmenu" href="sources.html">Sources</a>
+             </li>
+			<li class="nav-item">
+                <a class="nav-link vaultmenu" href="daynnite.html">Day &amp; Nite</a>
+             </li>
+			<li class="nav-item">
+                <a class="nav-link vaultmenu" href="jquerypage.html">jQuery</a>
+             </li>
+          </ul>
+       </div>
+    </nav>
+
+
+    <div class="jumbotron home">
+        <div class="concert" title="Music Concert">
+          <span class="headline">The Vault</span>
+        </div>
+    </div>
+
+   <div class="container sitebody">
+       <div class="row text-center">
+          <div class="col-lg-6 offset-lg-3">Welcome to my site dedicated to my favorite music. It's a place to celebrate all generes and artists, a place to discover new music and reminisce the classics. I hope you enjoy.</div>
+       </div>
+       <br>
+       <hr>
+       <br>
+       <div class="row bodyrow">
+          <div class="col-md-4">
+             <div class="card">
+                <img class="card-img-top soundcloud" src="images/soundcloud-card.jpg" alt="Soundcloud Icon">
+				 <a id="soundcloud"></a>
+                <div class="card-body">
+                   <h4 class="card-title">January 2020 Top 3</h4>
+                   <p class="card-text">Soundcloud's most played tracks last month</p>
+					<ul class="music-note">
+					<li> Roddy Ricch - The Box</li>
+					<li> Roddy Ricch - High Fashion</li>
+					<li> NLE Choppa - Camelot</li>
+					</ul>
+                   <br><br>
+					<input class="btn btn-primary" type="button" id="openW" value="Check out the list">
+                   <!--a href="https://soundcloud.com/discover/sets/charts-top:all-music:us" class="btn btn-primary">Check out the list</a-->
+                </div>
+             </div>
+          </div>
+          <div class="col-md-4">
+             <div class="card">
+				 <img class="homepagecard" src ="images/microphone1.jpg" alt="Microphone"/>
+             </div>
+             <br>
+             <br/>
+          </div>
+          <div class="col-md-4">
+             <div class="card">
+				<a id="spotify"></a>
+                <img class="card-img-top soundcloud" src="images/spotify-card.jpg" alt="Spotify Icon" >
+                <div class="card-body">
+                   <h5 class="card-title">My Favorite Spotify Playlists</h5>
+                   <p class="card-text">Check out the links below to hear my favorites</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                   <li class="list-group-item"><a href="https://open.spotify.com/playlist/3uFeP56boSPAj8T77hMGjY">- Soul</a></li>
+                   <li class="list-group-item"><a href="https://open.spotify.com/playlist/37i9dQZF1DX58UlVHNJFai">- Ill Lyricist</a></li>
+				   <li class="list-group-item"><a href="https://open.spotify.com/playlist/37i9dQZF1DX1rVvRgjX59F">- 90's Rock Anthems</a></li>
+				   <li class="list-group-item"><a href="https://open.spotify.com/playlist/37i9dQZF1DWWQRwui0ExPn">- Lo-Fi Beats</a></li>
+                </ul>
+             </div>
+          </div>
+       </div>
+       <!--div class="row">
+          <div class=" col-md-4"> Click here to select this<strong> column.</strong> Always place your content within a column. Columns are indicated by a dashed blue line. </div>
+          <div class="col-md-4 "> You can <strong>resize a column</strong> using the handle on the right. Drag it to increase or reduce the number of columns.</div>
+          <div class="col-md-4 "> You can <strong>offset a column</strong> using the handle on the left. Drag it to increase or reduce the offset. </div>
+       </div-->
+       <!--div class="row">
+          <div class="col-md-6 text-center">
+             <div class="card">
+                <div class="card-body">
+                   <h3>Adding <strong>Buttons</strong></h3>
+                   <p>Quickly add buttons to your page by using the button component in the insert panel. </p>
+                   <button type="button" class="btn btn-info btn-md">Info Button</button>
+                   <button type="button" class="btn btn-success btn-md">Success Button</button>
+                </div>
+             </div>
+          </div>
+          <div class="text-center col-md-6">
+             <div class="card">
+                <div class="card-body">
+                   <h3>Adding <strong>Badges</strong></h3>
+                   <p>Using the insert panel, add badge to your page by using the badge component.</p>
+                   <span class="badge badge-info">Info Badge</span> <span class="badge badge-danger">Danger Badge</span>
+                </div>
+             </div>
+          </div>
+       </div-->
+       <br>
+       <hr>
+       <div class="row">
+          <div class="text-center col-lg-6 offset-lg-3 offset-xl-0 col-xl-12">
+             <h4>Disclaimer:</h4>
+             <p>This website is developed as an educational project. Certain materials are included under the fair use exemption of the U.S. Copyright Law and have been prepared accoring to the fair use guidelines and are restricted from further use.</p>
+			  <p><a href="http://mason.gmu.edu/~mkrishn5/Web1/vault/styles.css">CSS Source File</a> &#9835; <a href="#backtotop">Return to Menu</a></p>
+			  <p><input type="image" src="images/easteregg-whole.png" class="egg" onclick="easteregg();" id="egg" alt="easter egg"/><!--input type="image" src="images/easteregg-broke.png" class="egg" onclick="toggle(this);"/--></p>
+          </div>
+       </div>
+    </div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>

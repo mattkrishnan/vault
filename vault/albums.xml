@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<albums>
+	
+	<album>
+		<name>good kid, m.A.A.d city</name>
+		<artist>Kendrick Lamar</artist>
+		<year>2012</year>
+		<label>Top Dawg Entertainment</label>
+	</album>
+	
+	<album>
+		<name>All Eyez On Me</name>
+		<artist>2pac</artist>
+		<year>1996</year>
+		<label>Deathrow Records</label>
+	</album>
+	
+	<album>
+		<name>Confident Music for Confident People</name>
+		<artist>Confidence Man</artist>
+		<year>2018</year>
+		<label>Heavenly Records</label>
+	</album>
+	
+	<album>
+		<name>Random Access Memories</name>
+		<artist>Daft Punk</artist>
+		<year>2013</year>
+		<label>Columbia Records</label>
+	</album>
+	
+	<album>
+		<name>Astroworld</name>
+		<artist>Travis Scott</artist>
+		<year>2018</year>
+		<label>Cactus Jack Records</label>
+	</album>
+	
+</albums>

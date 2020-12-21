@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Vault</title>
+    <link href="http://mason.gmu.edu/~mkrishn5/Web1/vault/styles.css" rel="stylesheet" type="text/css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Rock+Salt&display=swap" rel="stylesheet">
+
+
+	<script>
+		function start(){
+		var nameExists = localStorage.getItem(first-name);
+			console.log(nameExists);
+			if (nameExists == null){
+				document.getElementById("welcome-fname").innerHTML = " back " + nameExists.value +"!";
+			}
+			else{
+				document.getElementById("welcome-fname").innerHTML = " " + nameExists.value +"!";
+			}
+		}
+		
+		//This function stores a person's first name and displays it in a welcome message above the album suggestion
+		function welcome(){
+			var inputfirstname = document.getElementById("first-name"); //finds input ID
+			localStorage.setItem("first-name", inputfirstname.value); //sets name
+			document.getElementById("welcome-fname").innerHTML = " " + inputfirstname.value +"!"; //displays name
+		}
+		//This function clears the name from local storage
+		function clearname(){
+			  localStorage.removeItem('first-name');//value stored in key is removed.
+			  document.getElementById('first-name').value = ""; //this clears the input field and returns the default value
+  			  document.getElementById("welcome-fname").innerHTML = ""; //this removes the name from the welcome message
+		}
+		
+		// here are my two arrays. The pictures array are my image files. The descriptions array are my alt tag descriptions.
+		var pictures = ["images/bluegrass", "images/fiddle", "images/jazz", "images/piano", "images/rock", "images/yell"];
+		var descriptions = ["banjo music", "fiddle playing", "jazz music", "piano playing", "rock and roll", "kid yelling"];
+		
+		function pickAlbum(){
+			//this function randomly displays a fake album cover image I made from a set of six
+			var albumImg; //I initialize the variable
+			albumImg = document.getElementById("albumImg"); //I set it to find the albumImg ID
+			var index = Math.floor( Math.random() * 6); //This randomly chooses a number from the index
+			albumImg.setAttribute("src", pictures[ index ] + ".jpg"); //The index number is associated with the pictures array and sets up the file location
+			albumImg.setAttribute("alt", descriptions[ index ]); //The same index number sets up the corresponding description
+		}
+		
+		function checkLocalStorage(){
+			//this function checks if the user entered their name into local storage, then prints out a welcome back message.
+			var nameExists = localStorage.getItem('first-name');
+			//I made a new variable and set it to local storage. If no name is given, the value is null.
+			console.log(nameExists);
+				if (nameExists == null){
+					//if null, do nothing
+				}
+				else{
+					//if there's a name value, I give a welcome (back) message.
+					document.getElementById("welcome-fname").innerHTML = " (back) " + nameExists +"!";
+				}
+		}
+		
+		window.addEventListener("load", pickAlbum, false); //this eventlistener allows the pickAlbum() function to execute once the page loads
+		window.addEventListener("load", checkLocalStorage, false); //this eventlistener allows the pickAlbum() function to execute once the page loads
+
+	</script>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="backtotop">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+       </button>
+       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+             <li class="nav-item vaultmenu active">
+                <a class="nav-link vaultmenu" href="index.html" role="button" aria-haspopup="true" >Home</a>
+             </li>
+             <li class="nav-item">
+                <a class="nav-link vaultmenu" href="collection.html">Collection</a>
+             </li>
+             <li class="nav-item">
+                <a class="nav-link vaultmenu" href="contact.html">Contact</a>
+             </li>
+			 <li class="nav-item">
+                <a class="nav-link vaultmenu" href="listen.html">Suggestions<span class="sr-only">(current)</span></a>
+             </li> 
+            <li class="nav-item">
+                <a class="nav-link vaultmenu" href="sources.html">Sources</a>
+             </li>
+			 <li class="nav-item">
+                <a class="nav-link vaultmenu" href="daynnite.html">Day &amp; Nite</a>
+             </li>
+			 <li class="nav-item">
+                <a class="nav-link vaultmenu" href="jquerypage.html">jQuery</a>
+             </li>
+          </ul>
+       </div>
+    </nav>
+
+
+    <div class="jumbotron records">
+        <div class="concert" title="Music Concert">
+          <span class="headline-listen">Listen To This</span>
+        </div>
+    </div>
+
+<div class="container sitebody">
+       <div class="row text-center">
+          <div class="col-lg-6 offset-lg-3">To call yourself a real audiofile, you need to step outside your comfort zone and listen to all different types of music. Use this page to explore and view randomized music suggestions. First, what should I call you?
+	  	<form>
+		  <input type="text"  class = "cursor" placeholder="Enter Your Name" id="first-name"><br /><br />
+			<button class="coolBtn" onclick="welcome()" type="button">Submit</button> <button class="coolBtn" onclick="clearname()" type="button">Clear</button>
+		</form>
+	  </div>
+       </div>
+       <br>
+       <hr>
+       <br>
+       <div class="row bodyrow">
+          <div class="col-md-12">
+             <div class="card">
+                <div class="card-body">
+                   <h4 class="card-title">Welcome<span id= "welcome-fname">&nbsp;</span></h4>
+					<h5>Have you heard:</h5>
+					<div class="text-center" > <img id="albumImg" src="images/bluegrass.jpg" alt="banjo playing" class="img-fluid"/><p>Reload the page for more suggestions!</p></div>
+                </div>
+             </div>
+          </div>
+       </div>
+       <br>
+       <hr>
+       <div class="row">
+          <div class="text-center col-lg-6 offset-lg-3 offset-xl-0 col-xl-12">
+             <h4>Disclaimer:</h4>
+             <p>This website is developed as an educational project. Certain materials are included under the fair use exemption of the U.S. Copyright Law and have been prepared accoring to the fair use guidelines and are restricted from further use.</p>
+			  <p><a href="http://mason.gmu.edu/~mkrishn5/Web1/vault/styles.css">CSS Source File</a> &#9835; <a href="#backtotop">Return to Menu</a></p>
+			  
+          </div>
+       </div>
+
+    </div>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  </body>
+</html>
